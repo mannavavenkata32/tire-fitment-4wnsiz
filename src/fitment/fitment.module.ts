@@ -1,18 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { StoreModule } from '@ngrx/store';
+import { StoreModule } from "@ngrx/store";
 
-import { reducers } from './store'
+import { reducers } from "./store";
 
-import { FitmentContainerComponent } from './fitment-container/fitment-container.component';
+import { FitmentContainerComponent } from "./fitment-container/fitment-container.component";
+import { FitmentService } from "./services/fitment.service";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    StoreModule.forFeature('fitment', reducers),
-  ],
+  imports: [CommonModule, StoreModule.forFeature("fitment", reducers)],
   declarations: [FitmentContainerComponent],
-  exports: [FitmentContainerComponent]
+  exports: [FitmentContainerComponent],
+  providers: [FitmentService]
 })
-export class FitmentModule { }
+export class FitmentModule {}
