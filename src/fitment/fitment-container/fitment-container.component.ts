@@ -8,7 +8,7 @@ import * as fromStore from "../store";
 @Component({
   selector: "app-fitment-container",
   templateUrl: "./fitment-container.component.html",
-  styleUrls: ["./fitment-container.component.css"]
+  styleUrls: ["./fitment-container.component.css"],
 })
 export class FitmentContainerComponent implements OnInit, OnDestroy {
   data$: Observable<any>;
@@ -52,15 +52,14 @@ export class FitmentContainerComponent implements OnInit, OnDestroy {
   updateBreadCurmbs(type: string, value: string) {
     let vehicle = "";
     let breadCrumbs: any[] = JSON.parse(JSON.stringify(this.breadCrumbs));
-    const index = this.breadCrumbs.findIndex(x => x.val === value);
+    const index = this.breadCrumbs.findIndex((x) => x.val === value);
     if (index == -1) {
       breadCrumbs.push({ key: type, val: value });
-      this.breadCrumbs = breadCrumbs;
     } else {
-      this.breadCrumbs.splice(index, this.breadCrumbs.length - 1);
+      breadCrumbs.splice(index + 1, this.breadCrumbs.length - 1);
     }
-
-    this.breadCrumbs.forEach(item => {
+    this.breadCrumbs = breadCrumbs;
+    this.breadCrumbs.forEach((item) => {
       vehicle += " " + item.val;
     });
     this.vehicle = vehicle;
