@@ -56,7 +56,7 @@ export class FitmentContainerComponent implements OnInit, OnDestroy {
     if (index == -1) {
       breadCrumbs.push({ key: type, val: value });
     } else {
-      breadCrumbs.splice(index + 1, this.breadCrumbs.length - 1);
+      breadCrumbs.splice(index + 1, this.breadCrumbs.length);
     }
     this.breadCrumbs = breadCrumbs;
     this.breadCrumbs.forEach((item) => {
